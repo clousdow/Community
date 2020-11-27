@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="images/cloudShadow.ico">
+		<title>简易社区首页</title>
+		<link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+		<link href="css/register.css" rel="stylesheet" />
+		<link href="css/model.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<!-- navbar最顶部的导航栏 -->
+		<nav class="navbar navbar-default navbar-fixed-top mynav">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">简易社区</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html">主页</a></li>
+		        <li><a href="plate.html">版块</a></li>
+		      </ul>
+			  <ul class="nav navbar-nav input-group-prepend searchtext">
+				<li><input type="text" class="form-control " placeholder="搜索"></li>
+				<li><button class="btn btn-default" type="button" onclick="window.location.href='search.html'"><span class="glyphicon glyphicon-search"></span></button></li>
+			  </ul>
+		      <ul class="nav navbar-nav navbar-right" v-if="user === null">
+		        <li><a class="text-white" href="" data-toggle="modal" data-target="#myModal">登录</a></li>
+		        <li><a href="/Community/view/register.html">注册</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right user" v-else>
+				<li><span class="glyphicon glyphicon-bell mybell"></span></li> 
+				<li><img src="img/head.png" class="img-circle" onclick="window.location.href='user.html'"></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		
+		<!--modal 登录面板-->
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">登录</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-signin">
+		        	<h5 id="message" class="text-danger">&nbsp;</h5>
+		            <label for="inputText" class="sr-only">用户名</label>
+		            <input type="text" id="userName" name="userName" class="form-control" placeholder="用户名" required autofocus>
+		            <label for="inputPassword" class="sr-only">密码</label>
+		            <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="密码" required>
+		        	<br />
+		        	<a href="/Community/view/register.html">创建用户</a>
+		        	<a href="" class="pull-right">忘记密码</a>
+		          </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary btn-login">登录</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!--主体 -->
+		<div class=" main col-lg-12">
+			<div class="col-lg-6 col-lg-offset-3 register-panel">
+				<div class="register-head">
+					<h1>编辑资料</h1>
+				</div>
+				
+				<img id="preview" src="img/head.png" /><br />
+				<input type="file" name="file" id="file" onchange="imgPreview(this)" />
+				
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="inputName" class="col-sm-2 control-label">昵称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputName" placeholder="昵称">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">性别</label>
+						<label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadioMale" value="male"> 男
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="inlineRadioOptions" id="inlineRadioFemale" value="female"> 女
+						</label>
+					</div>
+					<div class="form-group">
+						<label for="inputBirth" class="col-sm-2 control-label">生日</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="inputBirth" placeholder="生日">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputBirth" class="col-sm-2 control-label">简介</label>
+						<div class="col-sm-10">
+							<textarea class="form-control">简介</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-primary">返回</button>
+							<button type="button" class="btn btn-primary">注册</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div>&nbsp;</div>
+		
+		<!--底部 -->
+		<footer>
+		    <div class="footavatar">
+		        <h2 class="text-center">简易社区<small>2.0.1版本</small></h2>
+				<p class="text-muted text-center">开发自[未命名]小组，于2020年11月</p>
+				<p class="text-muted text-center">用于学生实验项目，功能尚未完全完善</p>
+				<p class="text-muted text-center">项目中使用的框架都是开源框架</p>
+		    </div>
+		       
+		         <div class="Copyright">
+		           <ul>
+		             <a href="/">帮助中心</a><a href="/">联系我们</a><a href="/">广告投放</a><a href="/">关于我们</a>
+		           </ul>
+		           <p class="text-muted">Design by CloudShadow</p>
+		      </div>
+		</footer>
+		
+		<script src="js/jquery.slim.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="js/user/editUser.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="images/cloudShadow.ico">
+		<title>简易社区首页</title>
+		<link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+		<link href="css/search.css" rel="stylesheet" />
+		<link href="css/model.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<!-- navbar最顶部的导航栏 -->
+		<nav class="navbar navbar-default navbar-fixed-top mynav">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">简易社区</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html">主页</a></li>
+		        <li><a href="plate.html">版块</a></li>
+		      </ul>
+			  <ul class="nav navbar-nav input-group-prepend searchtext">
+				<li><input type="text" class="form-control " placeholder="搜索"></li>
+				<li><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></li>
+			  </ul>
+		      <ul class="nav navbar-nav navbar-right" v-if="user === null">
+		        <li><a class="text-white" href="" data-toggle="modal" data-target="#myModal">登录</a></li>
+		        <li><a href="/Community/view/register.html">注册</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right user" v-else>
+				<li><span class="glyphicon glyphicon-bell mybell"></span></li> 
+				<li><img src="img/head.png" class="img-circle"></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		
+		<!--modal 登录面板-->
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">登录</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-signin">
+		        	<h5 id="message" class="text-danger">&nbsp;</h5>
+		            <label for="inputText" class="sr-only">用户名</label>
+		            <input type="text" id="userName" name="userName" class="form-control" placeholder="用户名" required autofocus>
+		            <label for="inputPassword" class="sr-only">密码</label>
+		            <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="密码" required>
+		        	<br />
+		        	<a href="/Community/view/register.html">创建用户</a>
+		        	<a href="" class="pull-right">忘记密码</a>
+		          </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary btn-login">登录</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!--主体 -->
+		<div class=" main col-lg-12">
+			<div class="col-lg-6 col-lg-offset-3">
+				<div class="search">
+					<!-- Nav tabs -->
+					<div class="myTabs">
+						<ul id="myTabs" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#post" aria-controls="post" role="tab" data-toggle="tab">帖子</a></li>
+							<li role="presentation"><a href="#plate" aria-controls="plate" role="tab" data-toggle="tab">版块</a></li>
+							<li role="presentation"><a href="#user" aria-controls="user" role="tab" data-toggle="tab">用户</a></li>
+						</ul>
+					</div>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active post" id="post">
+							<ul class="list-group">
+						
+								<!-- 每一个帖子都在list-group下管理 -->
+								<li class="list-group-item" v-for="post in postList">
+									<div class="post-panel">
+										<img src="img/head.png" class="img-circle post-head-img">
+										<h2 class="line-limit-length"><a  href="post.html">{{ post.postName }}</a></h2>
+										<h3><small>2020.10.3 21:30</small></h3>
+										<p class="text-right plate"><a class="text-muted">{{ post.plateName }}</a></p>
+										<img>
+										<h4 class="line-limit-length">{{ post.postText }}123321372148234765634593574353476543777987769876437477463598475493573953465343759375238492358934593456739453745349634824</h4>
+										<div class="text-right bottom-menu">
+											<p>
+												<span class="bottom-menu-left"><span class="glyphicon glyphicon-thumbs-up myicon "></span>0</span>
+												<span class="bottom-menu-left"><span class="glyphicon glyphicon-comment myicon "></span>0</span>
+											</p>
+										</div>
+									</div>
+								</li>
+						
+						
+								<li class="list-group-item" v-for="post in postList">
+									<div class="post-panel">
+										<img src="img/head.png" class="img-circle post-head-img">
+										<h2 class="line-limit-length"><a :href="'/Community/view/post.html?postId=' + post.postId + '&pageNo=1'">{{ post.postName }}</a></h4>
+										<h3><small>2020.10.3 21:30</small></h3>
+										<p class="text-right plate"><a class="text-muted">{{ post.plateName }}</a></p>
+										<img class="img-responsive post-img" src="img/0a6b7d81bd2725ad9123d9d5.jpg">
+										<h4 class="line-limit-length">{{ post.postText }}房间号看电视剧了鼓风机喝咖啡的高科技放得开了辅导费定时关机开发的股份的健康更好看了发给对方就流动商贩吉林省的发货收购价</h4>
+										<div class="text-right bottom-menu ">
+											<p>
+												<span class="bottom-menu-left"><span class="glyphicon glyphicon-thumbs-up myicon "></span>0</span>
+												<span class="bottom-menu-left"><span class="glyphicon glyphicon-comment myicon "></span>0</span>
+											</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="plate">
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222</p>
+							</div>
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块2222222222222222222222222222222222222</p>
+							</div>
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块2222222222222222222222222222222222222</p>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="user">
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块2222222222222222222222222222222222222</p>
+							</div>
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块2222222222222222222222222222222222222</p>
+							</div>
+							<div class="plate">
+								<img src="img/head.png" class="img-circle">
+								<span class="heading"><a class="line-limit-length" href="plateMain.html">大概先这样</a></span>
+								<p class="text-muted intro line-limit-length">大概就是这样的版块2222222222222222222222222222222222222</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div>&nbsp;</div>
+		<!--底部 -->
+		<footer>
+		    <div class="footavatar">
+		        <h2 class="text-center">简易社区<small>2.0.1版本</small></h2>
+				<p class="text-muted text-center">开发自[未命名]小组，于2020年11月</p>
+				<p class="text-muted text-center">用于学生实验项目，功能尚未完全完善</p>
+				<p class="text-muted text-center">项目中使用的框架都是开源框架</p>
+		    </div>
+		       
+		         <div class="Copyright">
+		           <ul>
+		             <a href="/">帮助中心</a><a href="/">联系我们</a><a href="/">广告投放</a><a href="/">关于我们</a>
+		           </ul>
+		           <p class="text-muted">Design by CloudShadow</p>
+		      </div>
+		</footer>
+		
+		<script src="js/jquery.slim.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="js/search/search.js"></script>
+	</body>
+</html>

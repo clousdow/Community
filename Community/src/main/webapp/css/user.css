@@ -1,0 +1,145 @@
+.main{
+	padding-top: 100px;
+}
+.user-main{
+	background-color: #ffffff;
+	padding: 10px 20px;
+	box-shadow: darkgrey -3px 3px 10px 1px ;
+}
+.user-main img{
+	float: left;
+	height: 150px;
+	width: 150px;
+}
+.user-main h1{
+	padding-left: 180px;
+}
+.user-main-intro{
+	padding-top: 5px;
+	padding-left: 185px;
+	width: 600px;
+}
+.user-main button{
+	margin-left: 30px;
+	color: white;
+	background-color: #00d0e7;
+	border-color: #00d0e7;
+}
+.user-main-data{
+	margin-top: -100px;
+}
+.user-main-data div{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.user-main-data div:nth-child(-n+2){
+	border-left: 1px solid #ddd;
+}
+
+.user-data{
+	margin-top: 20px;
+	background-color: #ffffff;
+	padding: 10px 20px;
+	box-shadow: darkgrey -3px 3px 10px 1px ;
+}
+.user-data-nav{
+	background-color: #ffffff;
+}
+
+.post{
+	border: none;
+}
+.post ul{
+	border: none;
+}
+.post ul li{
+	margin-bottom: 20px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 20px;
+}
+.post-panel{
+	background-color: #ffffff;
+	padding: 20px 0px;
+	margin: 0px -20px;
+}
+.post-panel:hover{
+	box-shadow: darkgrey -3px 3px 10px 1px ;
+}
+.post-head-img{
+	float: left;
+	height: 40px;
+	margin-left: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.post-panel h2{
+	float: left;
+	margin-top: -7px;
+	margin-left: 10px;
+	width: 350px;
+}
+.post-panel h2 a{
+	color: #000000;
+}
+.post-panel h2 a:hover{
+	text-decoration: none;
+	color: #00d0e7;
+}
+.post-panel h3 small{
+	float: left;
+	padding-top: 10px;
+	margin-left: -345px;
+}
+.plate{
+	padding-right: 10px;
+	margin-top: 0px;
+}
+.plate a:hover{
+	text-decoration: none;
+	color: #00d0e7;
+}
+.post-img{
+	display: block;
+	width: 100%;
+}
+.post-panel h4{
+	padding-top: 30x;
+	padding-left: 10px
+}
+.bottom-menu{
+	margin-bottom: -30px;
+	padding-bottom: 10px;
+	color: #9d9d9d;
+}
+.bottom-menu-left{
+	padding-right: 30px;
+}
+
+.subscribe{
+	padding-top: 20px;
+}
+.subscribe-user:hover{
+	box-shadow: darkgrey -3px 3px 10px 1px ;
+}
+.subscribe-user img{
+	float: left;
+	margin-top: 5px;
+	height: 40px;
+	width: 40px;
+}
+.subscribe-user-name{
+	margin-top: 10px;
+	padding-left: 5px;
+	width: 150px;
+}
+.subscribe-user-intro{
+	margin-top: 15px;
+	width: 200px;
+}
+.subscribe-user button{
+	float: right;
+	margin-top: -80px;
+	margin-right: -10px;
+	
+}

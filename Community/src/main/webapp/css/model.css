@@ -1,0 +1,105 @@
+/*全局*/
+body{
+	background-color: #d5d5d5;
+}
+
+/*顶部导航栏*/
+.mynav{
+	
+}
+.mybell{
+	color: #9d9d9d;
+}
+.mybell:hover{
+	color: #00d0e7;
+}
+.searchtext{
+	padding-left: 100px;
+	margin-top: 8px;
+}
+.searchtext input{
+	width: 350px;
+	padding-left: 40px;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-right: none;
+}
+.searchtext button{
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
+.searchtext button:hover{
+	background-color: #00d0e7;
+	color: #ffffff;
+}
+.user{
+	
+}
+.user img{
+	height: 35px;
+	margin-top: 8px;
+}
+.user span{
+	font-size: 20px;
+	padding-right: 30px;
+	padding-top: 15px;
+}
+
+/*登录面板*/
+.form-signin{
+	
+}
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.form-signin a{
+	color: #9D9D9D;
+}
+.form-signin a:hover{
+	text-decoration: none;
+	color: #00d0e7;
+}
+.btn-login{
+	background-color: #00d0e7;
+	border-color: #00d0e7;
+}
+
+/*底部*/
+footer { 
+	border-top: 9px solid #00d0e7; 
+	background: #3b3b3b; 
+}
+.footavatar{
+	color: #00d0e7;
+}
+.Copyright {
+	text-align: center;
+	color: #00d0e7;
+	margin: 40px 0 0;
+}
+.Copyright ul a { 
+	color:#00d0e7;
+	display: inline; 
+	padding: 0 10px; 
+}
+.Copyright ul a:nth-child(-n+3) { 
+	border-right: #999 1px solid 
+}
+.Copyright ul a:hover {
+	text-decoration: none;
+	color: #039fff;
+}
+
+/*字数限制*/
+.line-limit-length {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

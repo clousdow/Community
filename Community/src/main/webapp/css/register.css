@@ -1,0 +1,27 @@
+.main{
+	padding-top: 100px;
+}
+.register-panel{
+	background-color: #ffffff;
+	padding: 10px 20px;
+	box-shadow: darkgrey -3px 3px 10px 1px ;
+}
+.register-panel input[type="radio"]{
+	margin-left: 20px;
+}
+.register-panel button{
+	margin-right: 20px;
+	background-color: #00d0e7;
+	color: #ffffff;
+	border-color: #00d0e7;
+}
+.register-head{
+	margin-bottom: 20px;
+	border-left: 5px solid #00d0e7;
+	padding-left: 20px;
+	margin-left: -20px;
+}
+.register-head h1{
+	letter-spacing: 20px;
+}
+	

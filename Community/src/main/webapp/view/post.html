@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="images/cloudShadow.ico">
+		<title>简易社区首页</title>
+		<link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+		<link href="css/model.css" rel="stylesheet" />
+		<link href="css/post.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<!-- navbar最顶部的导航栏 -->
+		<nav class="navbar navbar-default navbar-fixed-top mynav">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">简易社区</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li><a href="index.html">主页</a></li>
+		        <li><a href="plate.html">版块</a></li>
+		      </ul>
+			  <ul class="nav navbar-nav input-group-prepend searchtext">
+				<li><input type="text" class="form-control " placeholder="搜索"></li>
+				<li><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></li>
+			  </ul>
+		      <ul class="nav navbar-nav navbar-right" v-if="user === null">
+		        <li><a class="text-white" href="" data-toggle="modal" data-target="#myModal">登录</a></li>
+		        <li><a href="/Community/view/register.html">注册</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right user" v-else>
+				<li><span class="glyphicon glyphicon-bell mybell"></span></li> 
+				<li><img src="img/head.png" class="img-circle"></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		
+		<!--modal 登录面板-->
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">登录</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-signin">
+		        	<h5 id="message" class="text-danger">&nbsp;</h5>
+		            <label for="inputText" class="sr-only">用户名</label>
+		            <input type="text" id="userName" name="userName" class="form-control" placeholder="用户名" required autofocus>
+		            <label for="inputPassword" class="sr-only">密码</label>
+		            <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="密码" required>
+		        	<br />
+		        	<a href="/Community/view/register.html">创建用户</a>
+		        	<a href="" class="pull-right">忘记密码</a>
+		          </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary btn-login">登录</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!--主体 -->
+		<div class="main col-lg-6 col-lg-offset-3">
+			
+			<div class="panel panel-default post-head-pannel">
+			  <div class="panel-body post-head-body">
+			    <img src="img/head.png" class="img-circle post-head-img">
+			    <h2 class="line-limit-length"><a href="post.html">{{ post.postName }}</a></h2>
+				<h4><a class="text-muted">楼主名</a></h4>
+			    <h3><small>2020.10.3 21:30</small></h3>
+			  </div>
+			  <ul class="list-group">
+					<li class="list-group-item">
+						<div class="post-text">
+							<h4 class="">合格是规范化撒发哈萨克付款时发生经费和思考和规范的世界观福达合金挂号费的快感发动机盖客户的更深刻的干哈SDK格式的<img class="img-responsive post-img" src="img/0a6b7d81bd2725ad9123d9d5.jpg">{{ post.postText }}范德萨范德萨发就开始打发货单极速空港回复的顾客低功耗高科技单身公害快递费高考恢复的官方的顾客黑客帝国科技股份的概况和电饭锅和</h4>
+							<p class="pull-right text-muted bottom-menu">
+								<span class="bottom-menu-left"><span class="glyphicon glyphicon-thumbs-up myicon "></span>0</span>
+								<span class="bottom-menu-left"><span class="glyphicon glyphicon-comment myicon "></span>0</span>
+							</p>
+						</div>
+					</li>
+			      <li class="list-group-item">
+					  <p class="receive-head">回复</p>
+					  <div id="textEditor" ></div>
+					  <div class="receive-body"><button class="pull-right btn btn-primary receive-btn">回复</button></div>
+				  </li>
+			  </ul>
+			</div>
+			
+			<ul class="list-group post-body">
+			    <li class="list-group-item">
+					<div class="post-body-main">
+						<img src="img/head.png" class="img-circle post-body-headimg">
+						<h4 class="post-body-name"><a>官方人员</a></h4>
+						<p class="post-body-time text-muted"><span>2楼</span>2020-11-19 20:31</p>
+						<h4 class="post-body-text">合格是规范化撒发哈萨克付款时发生经费和思考和规范的世界观福达合金挂号费的快感发动机盖客户的更深刻的干哈SDK格式的<img class="img-responsive post-img" src="img/0a6b7d81bd2725ad9123d9d5.jpg">{{ post.postText }}范德萨范德萨发就开始打发货单极速空港回复的顾客低功耗高科技单身公害快递费高考恢复的官方的顾客黑客帝国科技股份的概况和电饭锅和</h4>
+						<h3 class="post-body-receive"><small><a>回复</a></small></h3>
+						<div class="post-receive">
+							<form class="form-horizontal">
+								<div class="form-group post-receive-form">
+									<label for="inputText" class="sr-only">回复</label>
+									<div class="col-sm-10">
+										<input type="text" id="receive" name="receive" class="form-control" placeholder="请输入正文">
+									</div>
+									<div class="col-sm-2">
+										<button class=" btn btn-primary receive-btn">回复</button>
+									</div>
+								</div>
+							</form>
+							<div class="post-receive-main">
+								<img src="img/head.png" class="img-circle post-receive-img">
+								<h4 class="post-receive-name"><a>官方人员</a></h4>
+								<p class="post-receive-time text-muted">2020-11-19 20:31</p>
+								<h4 class="post-receive-text">合格是规范化撒发哈萨克付款时发生经费和思考和规范的世界观福达合金挂号费的快感发动机盖客户的更深刻的干哈SDK格式的{{ post.postText }}范德萨范德萨发就开始打发货单极速空港回复的顾客低功耗高科技单身公害快递费高考恢复的官方的顾客黑客帝国科技股份的概况和电饭锅和</h4>
+								<a class="post-receive-a">回复</a>
+								<form class="form-horizontal">
+									<div class="form-group post-receive-form2">
+										<label for="inputText" class="sr-only">回复</label>
+										<div class="col-sm-10">
+											<input type="text" id="receive" name="receive" class="form-control" placeholder="请输入正文">
+										</div>
+										<div class="col-sm-2">
+											<button class=" btn btn-primary receive-btn">回复</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="post-receive-main">
+								<img src="img/head.png" class="img-circle post-receive-img">
+								<h4 class="post-receive-name"><a>官方人员</a><span class="text-muted">回复</span><a>官方人员</a></h4>
+								<p class="post-receive-time text-muted">2020-11-19 20:31</p>
+								<h4 class="post-receive-text">合格是规范化撒发哈萨克付款时发生经费和思考和规范的世界观福达合金挂号费的快感发动机盖客户的更深刻的干哈SDK格式的{{ post.postText }}范德萨范德萨发就开始打发货单极速空港回复的顾客低功耗高科技单身公害快递费高考恢复的官方的顾客黑客帝国科技股份的概况和电饭锅和</h4>
+								<a class="post-receive-a">回复</a>
+								<form class="form-horizontal">
+									<div class="form-group post-receive-form2">
+										<label for="inputText" class="sr-only">回复</label>
+										<div class="col-sm-10">
+											<input type="text" id="receive" name="receive" class="form-control" placeholder="请输入正文">
+										</div>
+										<div class="col-sm-2">
+											<button class=" btn btn-primary receive-btn">回复</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<span class="post-receive-page"><a class="active">1</a><a>2</a><a>3</a></span>
+						</div>
+					</div>
+				</li>
+				
+				
+			</ul>
+		</div>
+		
+		<!--页码-->
+		<div class="container-fluid text-center">
+			<nav aria-label="Page navigation">
+			  <ul class="pagination pagination-lg">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="active">
+					<span>1 <span class="sr-only">(current)</span></span>
+				</li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">8</a></li>
+				<li><a href="#">9</a></li>
+				<li><a href="#">10</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+		
+		<!--底部 -->
+		<footer>
+		    <div class="footavatar">
+		        <h2 class="text-center">简易社区<small>2.0.1版本</small></h2>
+				<p class="text-muted text-center">开发自[未命名]小组，于2020年11月</p>
+				<p class="text-muted text-center">用于学生实验项目，功能尚未完全完善</p>
+				<p class="text-muted text-center">项目中使用的框架都是开源框架</p>
+		    </div>
+		       
+		         <div class="Copyright">
+		           <ul>
+		             <a href="/">帮助中心</a><a href="/">联系我们</a><a href="/">广告投放</a><a href="/">关于我们</a>
+		           </ul>
+		           <p class="text-muted">Design by CloudShadow</p>
+		      </div>
+		</footer>
+		
+		<script src="js/jquery.slim.min.js"></script>
+		<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="js/wangEditor.min.js"></script>
+		<script src="js/post/post.js"></script>
+	</body>
+</html>
