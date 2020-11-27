@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 public class Reply{
 
 	/**
-	 * 回复实体类包括属性：回复编号，用户编号，楼层编号，回复内容,发布时间，回复用户编号，用户名称，回复用户名称
+	 * 回复实体类包括属性：回复编号，用户编号，楼层编号，回复号，回复内容，发布时间，回复用户编号，用户名称，回复用户名称
 	 */
 
 	@TableId(value = "reply_id", type = IdType.AUTO)
@@ -23,6 +23,8 @@ public class Reply{
 	private int replyUserId;
 	@TableField(exist = false)
 	private String userName;
+	@TableField(exist = false)
+	private String userimg;
 	@TableField(exist = false)
 	private String repleyUserName;
 	public int getReplyId() {
@@ -73,6 +75,12 @@ public class Reply{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String getUserimg() {
+		return userimg;
+	}
+	public void setUserimg(String userimg) {
+		this.userimg = userimg;
+	}
 	public String getRepleyUserName() {
 		return repleyUserName;
 	}
@@ -91,6 +99,7 @@ public class Reply{
 				", publicTime='" + publicTime + '\'' +
 				", replyUserId=" + replyUserId +
 				", userName='" + userName + '\'' +
+				", userimg='" + userimg + '\'' +
 				", repleyUserName='" + repleyUserName + '\'' +
 				'}';
 	}

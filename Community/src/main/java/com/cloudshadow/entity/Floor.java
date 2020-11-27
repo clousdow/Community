@@ -26,6 +26,8 @@ public class Floor{
 	@TableField(exist = false)
 	private String userName;
 	@TableField(exist = false)
+	private String userimg;
+	@TableField(exist = false)
 	private List<Reply> replyList;
 	public int getFloorId() {
 		return floorId;
@@ -69,6 +71,12 @@ public class Floor{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String getUserimg() {
+		return userimg;
+	}
+	public void setUserimg(String userimg) {
+		this.userimg = userimg;
+	}
 	public List<Reply> getReplyList() {
 		return replyList;
 	}
@@ -86,6 +94,7 @@ public class Floor{
 				", floorText='" + floorText + '\'' +
 				", publicTime=" + publicTime +
 				", userName='" + userName + '\'' +
+				", userimg='" + userimg + '\'' +
 				", replyList=" + replyList +
 				'}';
 	}

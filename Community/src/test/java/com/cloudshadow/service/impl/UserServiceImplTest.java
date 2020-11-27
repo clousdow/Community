@@ -1,4 +1,4 @@
-package test.java.com.cloudshadow.service.impl;
+package com.cloudshadow.service.impl;
 
 import com.cloudshadow.entity.User;
 import com.cloudshadow.service.UserService;

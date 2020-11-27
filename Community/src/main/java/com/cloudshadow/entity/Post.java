@@ -22,12 +22,13 @@ public class Post{
 	private String postName;
 	private String postImg;
 	private String postText;
-	private int replyNum;
 	private Date publicTime;
 	@TableField(exist = false)
 	private String plateName;
 	@TableField(exist = false)
 	private String userName;
+	@TableField(exist = false)
+	private String userimg;
 
 	public int getPostId() {
 		return postId;
@@ -65,12 +66,6 @@ public class Post{
 	public void setPostText(String postText) {
 		this.postText = postText;
 	}
-	public int getReplyNum() {
-		return replyNum;
-	}
-	public void setReplyNum(int replyNum) {
-		this.replyNum = replyNum;
-	}
 	public Date getPublicTime() {
 		return publicTime;
 	}
@@ -89,6 +84,12 @@ public class Post{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String getUserimg() {
+		return userimg;
+	}
+	public void setUserimg(String userimg) {
+		this.userimg = userimg;
+	}
 
 	@Override
 	public String toString() {
@@ -99,10 +100,10 @@ public class Post{
 				", postName='" + postName + '\'' +
 				", postImg='" + postImg + '\'' +
 				", postText='" + postText + '\'' +
-				", replyNum=" + replyNum +
 				", publicTime=" + publicTime +
 				", plateName='" + plateName + '\'' +
 				", userName='" + userName + '\'' +
+				", userimg='" + userimg + '\'' +
 				'}';
 	}
 }

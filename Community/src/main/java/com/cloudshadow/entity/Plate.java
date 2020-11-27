@@ -1,6 +1,7 @@
 package com.cloudshadow.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -19,6 +20,9 @@ public class Plate{
 	private String plateName;
 	private String plateImg;
 	private String plateIntroduction;
+	@TableField(exist = false)
+	private String userName;
+
 	public int getPlateId() {
 		return plateId;
 	}
@@ -55,6 +59,12 @@ public class Plate{
 	public void setPlateIntroduction(String plateIntroduction) {
 		this.plateIntroduction = plateIntroduction;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	@Override
 	public String toString() {
@@ -65,6 +75,7 @@ public class Plate{
 				", plateName='" + plateName + '\'' +
 				", plateImg='" + plateImg + '\'' +
 				", plateIntroduction='" + plateIntroduction + '\'' +
+				", userName='" + userName + '\'' +
 				'}';
 	}
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cloudshadow.mapper.PostMapper">
+    <resultMap type="com.cloudshadow.entity.Post" id="PostMap">
+        <id column="post_id" property="postId" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="plate_id" property="plateId" jdbcType="INTEGER" />
+        <result column="post_name" property="postName" jdbcType="VARCHAR" />
+        <result column="post_img" property="postImg" jdbcType="VARCHAR" />
+        <result column="post_text" property="postText" jdbcType="VARCHAR" />
+        <result column="reply_num" property="replyNum" jdbcType="INTEGER" />
+        <result column="public_time" property="publicTime" jdbcType="VARCHAR" />
+        <result column="plate_name" property="plateName" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="userImg" property="userImg" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select  id="getPostForPage" parameterType="java.util.Map" resultMap="PostMap">
+
+    </select>
+
+    <select  id="getPostForPageByPlateId" parameterType="java.util.Map" resultMap="PostMap">
+
+	</select>
+
+</mapper>
